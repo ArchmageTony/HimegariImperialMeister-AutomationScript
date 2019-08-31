@@ -1,0 +1,2 @@
+# HimegariImperialMeister-AutomationScript
+DMM手游《姬狩Imperial Meister》在雷电安卓模拟器上配合叉叉助手使用的自动化脚本
