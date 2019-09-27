@@ -993,6 +993,12 @@ function startGame()
 			startGameReturn = false;
 			break;
 		end
+		touchX, touchY = findColorInRegionFuzzy(0x777465, 95, 733, 311, 736, 314, 0, 0)
+		if touchX > -1 then
+			println("需要下载游戏最新版本，关闭");
+			startGameReturn = false;
+			break;
+		end		
 		mSleep(500+math.random(500));
 		if startGameCount >= 300 then
 			println("进入游戏超时，尝试重启脚本");
