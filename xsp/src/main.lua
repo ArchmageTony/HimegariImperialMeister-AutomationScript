@@ -1021,9 +1021,9 @@ function determineRun()
 	end
 	return determineRunReturn;
 end
---↓↓↓↓↓↓↓启动ab函数（无用）↓↓↓↓↓↓↓
+--↓↓↓↓↓↓↓启动ab函数↓↓↓↓↓↓↓
 function abInit()
-	_ab=require("armor blitz");
+	_ab=require("ab");
 	_ab:start();
 end
 --↓↓↓↓↓↓↓主要运行函数↓↓↓↓↓↓↓
