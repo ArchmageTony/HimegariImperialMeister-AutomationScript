@@ -987,18 +987,22 @@ function startGame()
 			println("进入到游戏界面");
 			break;
 		end
-		touchX, touchY = findColorInRegionFuzzy(0xa9a690, 100, 688, 341, 691, 344, 0, 0)
+		touchX, touchY = findColorInRegionFuzzy(0x48bd40, 95, 643, 497, 646, 4986, 0, 0)
 		if touchX > -1 then
-			println("游戏维护，关闭");
-			startGameReturn = false;
-			break;
+			println("出现绿色按钮，可能是超时或维护或更新");
+			touchX, touchY = findColorInRegionFuzzy(0xa9a690, 100, 688, 341, 691, 344, 0, 0)
+			if touchX > -1 then
+				println("游戏维护，关闭");
+				startGameReturn = false;
+				break;
+			end
+			touchX, touchY = findColorInRegionFuzzy(0x777465, 100, 733, 311, 736, 314, 0, 0)
+			if touchX > -1 then
+				println("需要下载游戏最新版本，关闭");
+				startGameReturn = false;
+				break;
+			end
 		end
-		touchX, touchY = findColorInRegionFuzzy(0x777465, 95, 733, 311, 736, 314, 0, 0)
-		if touchX > -1 then
-			println("需要下载游戏最新版本，关闭");
-			startGameReturn = false;
-			break;
-		end		
 		mSleep(500+math.random(500));
 		if startGameCount >= 300 then
 			println("进入游戏超时，尝试重启脚本");
