@@ -62,7 +62,7 @@
       },
       {
          "id" : "RadioGroup3",
-         "list" : "高级,超级",
+         "list" : "高级,超级,初级",
          "select" : "0",
          "size" : 30,
          "type" : "RadioGroup",

@@ -1,4 +1,4 @@
-Version = "2019-09-27";
+Version = "2020-03-17";
 --↓↓↓↓↓通知方法↓↓↓↓↓
 function println(context)
 	toast(context);
@@ -449,6 +449,19 @@ function eventStart()
 	elseif eDif == "1" then
 		println("选择难度为超级");
 		touchX,touchY=findUntil(0xa2978a, 95, 573, 304, 582, 310, 0, 0);
+	elseif eDif == "2" then
+		println("选择难度为初级");
+		touchX,touchY=findUntil(0xa2978a, 95, 573, 304, 582, 310, 0, 0);
+		mSleep(1000);
+		touchDown(1, 833, 592)
+		mSleep(50)
+		touchMove(1, 833, 492)
+		mSleep(50)
+		touchMove(1, 833, 289)
+		mSleep(50)
+		touchUp(1, 833, 289)
+		mSleep(1000);
+		touchX,touchY=findUntil(0x42403e, 95, 574, 511, 579, 516, 0, 0);
 	end
 	tap(touchX,touchY,253,40);
 	battle(2,21);
@@ -1002,6 +1015,12 @@ function startGame()
 				startGameReturn = false;
 				break;
 			end
+			touchX, touchY = findColorInRegionFuzzy(0x000000, 95, 436, 323, 441, 326, 0, 0)
+			if touchX > -1 then
+				println("超时，重启");
+				touchX, touchY = findColorInRegionFuzzy(0x48bd40, 95, 643, 497, 646, 4986, 0, 0)
+				tap(touchX,touchY);
+			end
 		end
 		mSleep(500+math.random(500));
 		if startGameCount >= 300 then
@@ -1033,8 +1052,8 @@ function determineRun()
 end
 --↓↓↓↓↓↓↓启动ab函数↓↓↓↓↓↓↓
 function abInit()
---	_ab=require("ab");
---	_ab:start();
+	--	_ab=require("ab");
+	--	_ab:start();
 end
 --↓↓↓↓↓↓↓主要运行函数↓↓↓↓↓↓↓
 function mainFunction()
